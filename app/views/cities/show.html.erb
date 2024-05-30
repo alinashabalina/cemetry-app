@@ -3,7 +3,7 @@
 <% @graveyards.each do |graveyard| %>
 <div class="card-wrapper">
 <div class="card-image"><img src="<%= asset_path('tombstone.svg') %>"/>
-<div class="card-text"><%= link_to graveyard.title, city_graveyard_path(:id) , :style=>'color: #F2EFE5; text-decoration: none' %></div>
+<div class="card-text"><%= link_to graveyard.title, city_graveyard_path(@city, graveyard.id) , :style=>'color: #F2EFE5; text-decoration: none' %></div>
 </div>
 
 </div>

@@ -27,7 +27,11 @@ city = City.new("title": "Hamburg", "country": "Germany")
 city.save!
 city = City.new("title": "Frankfurt", "country": "Germany")
 city.save!
+gry = Graveyard.new("title": "Dreifaltigkeitskirchhof", "city_id": 2, "details": "In der ehemaligen Friedhofskapelle des Friedhofs befindet sich seit Anfang November 2013 eine Dauerausstellung über die Familie Mendelssohn.")
+gry.save!
 gry = Graveyard.new("title": "Dreifaltigkeitskirchhof", "city_id": 2)
 gry.save!
-gry = Graveyard.new("title": "Dreifaltigkeitskirchhof", "city_id": 17)
-gry.save!
+guide = Guide.new("name": "Name Surname", "city_id": 2)
+guide.save!
+gr = Graveyard.new("title": "lala", "details": "lalalalalal", "city_id": 2, "address": "Berlin, Kochstrasse 3")
+gr.save!
