@@ -7,4 +7,8 @@ class CitiesController < ApplicationController
     end
   end
 
+  def show
+    @city = City.find(params[:id])
+    @graveyards = Graveyard.all.where(city_id: params[:id])
+end
 end

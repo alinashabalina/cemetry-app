@@ -13,7 +13,7 @@
 <% if @cities.any? %>
     <% @cities.each do |city| %>
 <div class="card">
-<div class="city"><%= city.title %></div>
+<div class="city"><%= link_to city.title, city_path(city.id), :style=>'color: black; text-decoration: none;'%></div>
 </div>
     <% end %>
 
@@ -29,7 +29,7 @@
   h2 {
     font-family: "Sedan SC", serif;
     font-size: 200px;
-    text-align:center;
+    text-align: center;
   }
 
   .wrapper {
@@ -96,6 +96,7 @@
   .city {
     font-family: "Sedan SC", serif;
     text-align: center;
+    color: black;
   }
 
   .city-pic {

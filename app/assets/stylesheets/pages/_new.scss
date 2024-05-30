@@ -1,0 +1,48 @@
+.body {
+  width: 100vw;
+}
+
+h2 {
+  text-align: center;
+}
+
+.form {
+width: 400px;
+box-shadow: 5px 5px 5px 5px #B4B4B8;
+border-radius: 10%;
+height: 370px;
+margin-right: auto;
+margin-left: auto;
+margin-top: 50px;
+padding-top: 20px;
+}
+
+.form-input {
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.form-label {
+  width: 400px;
+  text-align: center;
+   margin-left: auto;
+   margin-right: auto;
+  }
+
+  .form-actions {
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-check {
+    width: 120px;
+    margin-left: auto;
+    margin-right: auto;
+  }

@@ -29,3 +29,5 @@ city = City.new("title": "Frankfurt", "country": "Germany")
 city.save!
 gry = Graveyard.new("title": "Dreifaltigkeitskirchhof", "city_id": 2)
 gry.save!
+gry = Graveyard.new("title": "Dreifaltigkeitskirchhof", "city_id": 17)
+gry.save!

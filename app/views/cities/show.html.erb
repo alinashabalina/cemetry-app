@@ -1,0 +1,49 @@
+<div class="wrapper">
+  <div class="cards-wrapper">
+<% @graveyards.each do |graveyard| %>
+<div class="card-wrapper">
+<div class="card-image"><img src="<%= asset_path('tombstone.svg') %>"/>
+<div class="card-text"><%= link_to graveyard.title, city_graveyard_path(:id) , :style=>'color: #F2EFE5; text-decoration: none' %></div>
+</div>
+
+</div>
+<% end %>
+</div>
+</div>
+
+
+<style>
+  .wrapper {
+    width: 100%;
+  }
+  .cards-wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 90vw;
+    flex-wrap: wrap;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .card-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 300px;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+  }
+
+  .card-image {
+    position: relative;
+  }
+
+  .card-text {
+    position: absolute;
+    top: 45%;
+    font-size: 11px;
+    left: 30%;
+    font-family: "Sedan SC", serif;
+
+  }
+</style>
