@@ -1,0 +1,124 @@
+<h2>Explore</h2>
+
+<div class="wrapper">
+<form action="/index" method="get" class="search-form">
+  <div style="display:flex;">
+  <input type="text" name="title" class="search-input" placeholder="enter a city or a country">
+  <input type="submit" class="search-button">
+  </div>
+</form>
+
+<div class="popular-header">you might look for...</div>
+<div class="scrolling-wrapper">
+<% if @cities.any? %>
+    <% @cities.each do |city| %>
+<div class="card">
+<div class="city"><%= city.title %></div>
+</div>
+    <% end %>
+
+<% else %>
+<div style="width: 100%;">
+ <div class="sorry">Sorry, no city found</div>
+<% end %>
+</div>
+</div>
+
+<style lang="scss">
+
+  h2 {
+    font-family: "Sedan SC", serif;
+    font-size: 200px;
+    text-align:center;
+  }
+
+  .wrapper {
+    min-width: 100vw;
+  }
+
+  .search-form {
+    width: 700px;
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+  }
+
+  .search-input {
+    width: 500px;
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    margin-left: 30px;
+    box-shadow: 5px 5px 5px 5px #B4B4B8;
+
+  }
+
+  .search-input::placeholder {
+    text-align: center;
+    font-family: "Sedan SC", serif;
+  }
+
+  .search-button {
+    width: 100px;
+    height: 50px;
+    border-radius: 10px;
+    border:none;
+    margin-left: 30px;
+    font-family: "Sedan SC", serif;
+  }
+
+  .search-button:hover {
+    background-color: #B4B4B8;
+  }
+
+ .scrolling-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+  min-width: 100vw;
+  flex-direction: row;
+  margin-top: 30px;
+  background-color: white;
+  height: 250px;
+  align-items: center;
+}
+  .card {
+    width: 200px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    background-color: #E3E1D9;
+    border-radius: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+
+  .city {
+    font-family: "Sedan SC", serif;
+    text-align: center;
+  }
+
+  .city-pic {
+    width: 190px;
+    height: 190px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+    border-radius: 10px;
+  }
+
+  .sorry {
+    width: 100vw;
+    text-align: center;
+    margin-top: 50px;
+    font-family: "Sedan SC", serif;
+    font-size: 40px;
+  }
+
+  .popular-header {
+    font-family: "Sedan SC", serif;
+    font-size: 40px;
+    text-align: center;
+  }
+
+</style>

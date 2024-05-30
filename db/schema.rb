@@ -10,9 +10,48 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_29_202622) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_30_072149) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cities", force: :cascade do |t|
+    t.string "title"
+    t.string "country"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "graveyards", force: :cascade do |t|
+    t.string "title"
+    t.string "address"
+    t.float "latitude"
+    t.float "longitude"
+    t.bigint "city_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "details"
+    t.index ["city_id"], name: "index_graveyards_on_city_id"
+  end
+
+  create_table "guides", force: :cascade do |t|
+    t.string "name"
+    t.bigint "city_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["city_id"], name: "index_guides_on_city_id"
+  end
+
+  create_table "tours", force: :cascade do |t|
+    t.string "title"
+    t.bigint "guide_id", null: false
+    t.bigint "graveyard_id", null: false
+    t.bigint "city_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["city_id"], name: "index_tours_on_city_id"
+    t.index ["graveyard_id"], name: "index_tours_on_graveyard_id"
+    t.index ["guide_id"], name: "index_tours_on_guide_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -26,4 +65,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_29_202622) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "graveyards", "cities"
+  add_foreign_key "guides", "cities"
+  add_foreign_key "tours", "cities"
+  add_foreign_key "tours", "graveyards"
+  add_foreign_key "tours", "guides"
 end

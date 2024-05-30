@@ -7,3 +7,25 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+city = City.new("title": "Bad Schandau", "country": "Germany")
+city.save!
+city = City.new("title": "Berlin", "country": "Germany")
+city.save!
+city = City.new("title": "Prag", "country": "Czech Republic")
+city.save!
+city = City.new("title": "Dresden", "country": "Germany")
+city.save!
+city = City.new("title": "Potsdam", "country": "Germany")
+city.save!
+city = City.new("title": "Brandenburg", "country": "Germany")
+city.save!
+city = City.new("title": "Magdeburg", "country": "Germany")
+city.save!
+city = City.new("title": "Leipzig", "country": "Germany")
+city.save!
+city = City.new("title": "Hamburg", "country": "Germany")
+city.save!
+city = City.new("title": "Frankfurt", "country": "Germany")
+city.save!
+gry = Graveyard.new("title": "Dreifaltigkeitskirchhof", "city_id": 2)
+gry.save!
