@@ -11,7 +11,12 @@
   <div class="card-info">
     <%=@graveyard.details%>
   </div>
-  <div class="card-gallery"></div>
+  <h3>Pics worth seeing</h3>
+  <div class="card-gallery" data-controller="pics">
+    <div class="card-pic" data-action="click->pics#enlarge"></div>
+    <div class="card-pic"></div>
+    <div class="card-pic"></div>
+  </div>
 </div>
 <div class="gr">
 <div class="gr-map"
