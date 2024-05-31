@@ -6,6 +6,10 @@ export default class extends Controller {
   }
 
   enlarge(event) {
-    event.currentTarget.classList.add("card-pic-enlarged")
+    if (event.currentTarget.classList.contains("card-pic-enlarged"))
+    {event.currentTarget.classList.remove("card-pic-enlarged")}
+    else {
+      event.currentTarget.classList.add("card-pic-enlarged")
+    }
   }
 }
