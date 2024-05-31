@@ -16,4 +16,7 @@ class GraveyardsController < ApplicationController
       lng: @graveyard.longitude
     }]
 end
+
+def info
+end
 end

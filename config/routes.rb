@@ -1,13 +1,14 @@
 Rails.application.routes.draw do
   root to: "cities#index"
   get "/index", to: "cities#index"
+  get "/info", to: "graveyards#info"
   devise_for :users
   resources :cities, only: [:index, :show] do
     resources :graveyards, only: [:show]
-    resources :guides, only: [:index, :show, :create]
+    resources :guides, only: [:create]
   end
 
-
+  resources :guides, only: [:index, :show]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -16,4 +17,10 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
+  if Rails.env.development?
+    get '404', to: 'exceptions#show'
+    get '422', to: 'exceptions#show'
+    get '500', to: 'exceptions#show'
+ end
 end

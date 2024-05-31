@@ -1,1 +1,8 @@
-<h2>hello</h2>
+<div class="guide-wrapper" data-controller="guides">
+  <% @guides.each do |guide|%>
+  <div class="guide">
+   <img src="<%= asset_path(guide.photo)%>" class="guide-photo" data-action="click->guides#show" id="<%= guide.id%>"/>
+   <div class="bio-none bio" data-guides-target="bio" data-action="click->guides#close"></div>
+   </div>
+    <% end%>
+  </div>

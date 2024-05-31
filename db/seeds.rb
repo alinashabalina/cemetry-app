@@ -31,7 +31,9 @@ gry = Graveyard.new("title": "Dreifaltigkeitskirchhof", "city_id": 2, "details":
 gry.save!
 gry = Graveyard.new("title": "Dreifaltigkeitskirchhof", "city_id": 2)
 gry.save!
-guide = Guide.new("name": "Name Surname", "city_id": 2)
+guide = Guide.new("name": "Julia", "city_id": 2, "bio": "I am a professional cemetry guide", "photo": "IMG_0281.jpg")
 guide.save!
-gr = Graveyard.new("title": "lala", "details": "lalalalalal", "city_id": 2, "address": "Berlin, Kochstrasse 3")
-gr.save!
+guide = Guide.new("name": "Alex", "city_id": 2, "bio": "I am a professional software developer/amateur guide", "photo": "PICT0027.JPG")
+guide.save!
+guide = Guide.new("name": "Lina Lina", "city_id": 2, "bio": "I am a software developer/guide", "photo": "PICT0031.JPG")
+guide.save!
