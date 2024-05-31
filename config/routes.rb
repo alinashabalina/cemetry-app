@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root to: "cities#index"
   get "/index", to: "cities#index"
   get "/info", to: "graveyards#info"
+  get "/info-g/:id", to: "guides#info"
   devise_for :users
   resources :cities, only: [:index, :show] do
     resources :graveyards, only: [:show]
@@ -9,6 +10,8 @@ Rails.application.routes.draw do
   end
 
   resources :guides, only: [:index, :show]
+  resources :users, only: [:show, :edit]
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

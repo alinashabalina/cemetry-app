@@ -15,7 +15,7 @@ body {
   background-color: #F2EFE5;
   border-radius: 10px;
   padding: 50px;
-
+  justify-content: space-around;
 }
 
 .guide-photo {
@@ -38,11 +38,6 @@ body {
   flex-direction: column;
 }
 
-.bio-none {
-  display: none;
-  transition: 0.5s;
-}
-
 .bio {
   width: 200px;
   height: 100px;
@@ -50,7 +45,21 @@ body {
   transition: 0.5s;
   border-radius: 10px;
   margin-top: 5px;
-  font-family: "Sedan", "sans-serif";
-  font-size: 20px;
+  font-family: $body-font;
+  font-size: 18px;
   padding: 10px;
+  text-align: center;
+  display:flex;
+  flex-direction: column;
+}
+
+.link-btn {
+  text-decoration: none;
+  color: black;
+  font-family: $body-font;
+  font-size: 14px;
+}
+
+.guide-container {
+  display: flex;
 }

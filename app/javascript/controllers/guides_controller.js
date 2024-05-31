@@ -9,17 +9,11 @@ export default class extends Controller {
   show(event) {
     event.preventDefault();
     const id = event.currentTarget.id
-    const response = fetch(`/guides/${id}`, {
+    const response = fetch(`/info-g/${id}`, {
       method: "GET"
     })
     .then(response=>response.json())
-    .then(data=>{this.bioTarget.classList.remove("bio-none");
+    .then(data=>{
       this.bioTarget.textContent = data.message.bio})
-  }
-
-  close(event) {
-    event.preventDefault();
-    this.bioTarget.textContent = ""
-    this.bioTarget.classList.remove("bio")
   }
 }

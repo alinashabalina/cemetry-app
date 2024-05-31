@@ -1,3 +1,17 @@
 <div class="guide-container">
-not yet ready coming soon
+
+  <div class="photo-container">
+ <img src="<%= asset_path(@guide.photo)%>" class="guide-photo-large"/>
+ </div>
+
+ <div class="mega-wrapper">
+ <h4><%= @guide.name %></h4>
+ <div class="buttons-container">
+  <a href="https://www.instagram.com/maat.zine/" class="socials-button">My Instagram Account</a>
+  <a href="https://t.me/maatzine" class="socials-button">My Telegram Account</a>
+  <a href="https://patreon.com/maat_zine" class="socials-button">My Patreon Account</a>
+ </div>
+ <div class="guide-info"><%= @guide.bio %></div>
+</div>
+
 </div>
