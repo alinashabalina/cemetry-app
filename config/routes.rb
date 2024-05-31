@@ -9,7 +9,10 @@ Rails.application.routes.draw do
     resources :guides, only: [:create]
   end
 
-  resources :guides, only: [:index, :show]
+  resources :guides, only: [:index, :show] do
+    post :subscribe
+  end
+
   resources :users, only: [:show, :edit]
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

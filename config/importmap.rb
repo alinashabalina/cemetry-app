@@ -9,3 +9,4 @@ pin "bootstrap", to: "bootstrap.min.js", preload: true
 pin "@popperjs/core", to: "popper.js", preload: true
 pin "mapbox-gl" # @3.1.2
 pin "process" # @2.0.1
+pin "@rails/actioncable", to: "https://cdn.jsdelivr.net/npm/@rails/actioncable@7.0.8-3/app/assets/javascripts/actioncable.esm.js"
