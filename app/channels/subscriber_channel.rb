@@ -1,6 +1,6 @@
 class SubscriberChannel < ApplicationCable::Channel
   def subscribed
-    guide = Guide.find(current_user.id)
+    guide = Guide.find(params[:id])
     stream_for guide
   end
 

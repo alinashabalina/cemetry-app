@@ -3,15 +3,14 @@ Rails.application.routes.draw do
   get "/index", to: "cities#index"
   get "/info", to: "graveyards#info"
   get "/info-g/:id", to: "guides#info"
+  post "/guides/:guide_id/subscribe", to: "subscriptions#create"
   devise_for :users
   resources :cities, only: [:index, :show] do
     resources :graveyards, only: [:show]
     resources :guides, only: [:create]
   end
 
-  resources :guides, only: [:index, :show] do
-    post :subscribe
-  end
+  resources :guides, only: [:index, :show]
 
   resources :users, only: [:show, :edit]
 
