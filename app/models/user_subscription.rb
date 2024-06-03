@@ -1,4 +1,4 @@
 class UserSubscription < ApplicationRecord
-  belongs_to :user
-  belongs_to :guide
+  has_many :users
+  has_many :guides
 end

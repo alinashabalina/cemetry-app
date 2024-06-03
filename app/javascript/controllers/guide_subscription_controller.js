@@ -2,15 +2,21 @@ import { Controller } from "@hotwired/stimulus"
 import { createConsumer } from "@rails/actioncable"
 
 export default class extends Controller {
-  static values = { guideId: Number }
-  static targets = ["subscription"]
-
+  static targets = ["subscription", "button"]
+  static values = {id: { type: String, default: window.location.pathname.split('/')[2] }}
+  id = window.location.pathname.split('/');
 
   connect() {
     this.subscription = createConsumer().subscriptions.create(
-      { channel: "SubscriberChannel", id: this.guideIdValue },
+      { channel: "SubscriptionsChannel", guide_id: this.idValue, message: 0 },
       { received: data => this.subscriptionTarget.insertAdjacentHTML("beforeend", data) }
     )
-    console.log(`Subscribed to the guide with the id ${this.guideIdValue}.`)
   }
-}
+
+  subscribe(event) {
+    event.preventDefault()
+    const response = fetch(`/guides/${this.idValue}/subscriptions`, {
+      method: "POST"
+    },
+    )
+  }}
