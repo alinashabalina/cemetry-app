@@ -36,6 +36,7 @@ class GuidesController < ApplicationController
     @user = current_user
     if @guide.save
       redirect_to root_path, notice: "You have successfully applied"
+      UserMailer.application_email(@user).deliver
        else
          respond_to do |format|
            msg = { :status => 400, :message => @guide.errors.full_messages }
