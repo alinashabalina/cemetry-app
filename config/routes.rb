@@ -3,7 +3,13 @@ Rails.application.routes.draw do
   get "/index", to: "cities#index"
   get "/info", to: "graveyards#info"
   get "/info-g/:id", to: "guides#info"
+  get "/guides/apply", to: "guides#apply", as: "apply"
+  post "/guides/create", to: "guides#create", as: "guides"
+  get "/guides/:guide_id/edit", to: "guides#edit", as: "guide_edit"
   devise_for :users
+
+resources :guides, only: [:show]
+
   resources :cities, only: [:index, :show] do
     resources :graveyards, only: [:show]
     resources :guides, only: [:create]
@@ -13,9 +19,7 @@ Rails.application.routes.draw do
     resources :subscriptions, only: [:create]
   end
 
-  resources :users, only: [:show, :edit]
-
-  resources :guides
+  resources :users, only: [:show]
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

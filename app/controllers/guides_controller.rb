@@ -23,27 +23,31 @@ class GuidesController < ApplicationController
     @guide = Guide.find(params[:id])
   end
 
-    def create
-      @guide= Guide.new(guide_params)
-      @city = City.find(params[:city_id])
-      @guide.city = @city
-      if @guide.save
-          respond_to do |format|
-            msg = { :status => 201, :message => "You have successfully applied as a guide. We will send you an email with further instructions" }
-            format.json  { render :json => msg }
-          end
-        else
-          respond_to do |format|
-            msg = { :status => 400, :message => @guide.errors.full_messages }
-            format.json  { render :json => msg }
-          end
-        end
+    def edit
+      @guide = Guide.find(params[:id])
     end
 
-    private
-
-    def review_params
-      params.require(:review).permit(:content, :stars, :visited_on)
+    def apply
+      @guide = Guide.new
     end
+
+  def create
+    @guide= Guide.new(guide_params)
+    @user = current_user
+    if @guide.save
+      redirect_to root_path, notice: "You have successfully applied"
+       else
+         respond_to do |format|
+           msg = { :status => 400, :message => @guide.errors.full_messages }
+           format.json  { render :json => msg }
+         end
+       end
+  end
+
+  private
+
+  def guide_params
+    params.require(:guide).permit(:social_1, :social_2, :social_3, :bio, :photo, :city_id, :name)
+  end
 
 end

@@ -1,0 +1,23 @@
+<h2>apply as a guide</h2>
+
+
+<div class="form-submit">
+<%= simple_form_for(@guide) do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :name, label: 'What is your name?' ,
+                input_html: {class: "form-input"}%>
+  <%= f.input :city_id, label: 'What is your city?',
+                input_html: {class: "form-input"} %>
+  <%= f.input :bio, label: 'What is your bio?',
+                input_html: {class: "form-input"} %>
+  <%= f.input :photo, label: 'Upload your photo?',
+                input_html: {class: "form-input"} %>
+  <%= f.input :social_1, label: 'What is your social?',
+                input_html: {class: "form-input"} %>
+  <%= f.input :social_2, label: 'What is your social?',
+                input_html: {class: "form-input"} %>
+  <%= f.input :social_3, label: 'What is your social?',
+                input_html: {class: "form-input"} %>
+  <%= f.button :submit, value: "Apply as a guide", class:"btn btn-primary" %>
+<% end %>
+</div>
