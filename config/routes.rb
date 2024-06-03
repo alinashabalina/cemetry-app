@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get "/guides/:guide_id/edit", to: "guides#edit", as: "guide_edit"
   devise_for :users
 
+  mount ActionCable.server => "/cable"
+
 resources :guides, only: [:show]
 
   resources :cities, only: [:index, :show] do

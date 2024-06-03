@@ -4,13 +4,11 @@ class SubscriptionsController < ApplicationController
     if current_user
       @subscription = UserSubscription.new("user_id": current_user.id, "guide_id": params[:guide_id])
       if @subscription.save!
-        SubscriptionsChannel.broadcast_to(
-            @guide,
-            render_to_string(partial: "message", locals: {subscription: @subscription})
-          )
-          head :created
+        SubscriptionsChannel.broadcast_to(@guide, message: "{\"channel\":\"SubscriptionsChannel\",\"id\":\"2\"}"
+        )
+        head :ok
       else
-        puts "hru"
+
       end
     end
   end

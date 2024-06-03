@@ -11,7 +11,4 @@ class UsersController < ApplicationController
     @guide.city = @city
   end
 
-
-
-
 end
