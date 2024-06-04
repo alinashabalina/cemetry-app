@@ -21,7 +21,19 @@ class GuidesController < ApplicationController
 
   def show
     @guide = Guide.find(params[:id])
-  end
+    sbscr = UserSubscription.where("guide_id": @guide.id)
+    @count =  sbscr.count
+    if current_user
+      @subscription = UserSubscription.where("user_id": current_user.id, "guide_id": @guide.id).last
+      if @subscription
+        @id = "yes"
+      else
+        @id = "none"
+      end
+    else
+      flash[:notice] = "You need to login to subscribe"
+    end
+end
 
     def edit
       @guide = Guide.find(params[:id])
