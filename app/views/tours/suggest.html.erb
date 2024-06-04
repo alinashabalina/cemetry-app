@@ -1,0 +1,15 @@
+<h2>create a tour</h2>
+
+
+<div class="form-tour">
+<%= simple_form_for(@tour) do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :title, label: 'What is your tour name?' ,
+                input_html: {class: "form-input"}%>
+  <%= f.input :city_id, label: 'What is your city?',
+                input_html: {class: "form-input"} %>
+  <%= f.input :graveyard_id, label: 'What graveyard is the tour about?',
+                input_html: {class: "form-input"} %>
+  <%= f.button :submit, value: "Suggest your tour", class:"form-butt" %>
+<% end %>
+</div>

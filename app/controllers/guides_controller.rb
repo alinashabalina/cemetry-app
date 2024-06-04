@@ -44,11 +44,13 @@ end
     end
 
   def create
-    @guide= Guide.new(guide_params)
+    @guide = Guide.new(guide_params)
     @user = current_user
+    @user.role = "pending"
+    @user.save
     if @guide.save
-      redirect_to root_path, notice: "You have successfully applied"
-      UserMailer.application_email(@user).deliver
+      UpdateUserJob.perform_later(@user)
+      # UserMailer.application_email(@user).deliver
        else
          respond_to do |format|
            msg = { :status => 400, :message => @guide.errors.full_messages }

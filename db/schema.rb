@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_31_155330) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_04_140829) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -44,7 +44,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_31_155330) do
     t.string "social_1"
     t.string "social_2"
     t.string "social_3"
+    t.bigint "user_id"
     t.index ["city_id"], name: "index_guides_on_city_id"
+    t.index ["user_id"], name: "index_guides_on_user_id"
   end
 
   create_table "tours", force: :cascade do |t|
@@ -76,15 +78,20 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_31_155330) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "role", default: "user"
+    t.bigint "guide_id"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["guide_id"], name: "index_users_on_guide_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "graveyards", "cities"
   add_foreign_key "guides", "cities"
+  add_foreign_key "guides", "users"
   add_foreign_key "tours", "cities"
   add_foreign_key "tours", "graveyards"
   add_foreign_key "tours", "guides"
   add_foreign_key "user_subscriptions", "guides"
   add_foreign_key "user_subscriptions", "users"
+  add_foreign_key "users", "guides"
 end

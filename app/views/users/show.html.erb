@@ -11,7 +11,14 @@
   <a href="https://t.me/maatzine" class="socials-button">My Telegram Account</a>
   <a href="https://patreon.com/maat_zine" class="socials-button">My Patreon Account</a>
  </div>
-  <%= link_to "become a guide",   apply_path(@user)%>
+ <% if @user.role == "user" %>
+  <%= link_to "become a guide", apply_path(@user)%>
+ <% elsif @user.role == "pending" %>
+ <%= link_to "post a tour", suggest_path(@user)%>
+  <% else %>
+   <%= link_to "post a tour", suggest_path(@user)%>
+  <% end %>
+
 </div>
 
 </div>
