@@ -1,5 +1,6 @@
 class SubscriptionsController < ApplicationController
   skip_before_action :verify_authenticity_token
+
   def create
     if current_user
       @subscription = UserSubscription.new("user_id": current_user.id, "guide_id": params[:guide_id])
@@ -9,6 +10,8 @@ class SubscriptionsController < ApplicationController
         @count = number.count
         SubscriptionsChannel.broadcast_to(guide, @count)
       end
+    else
+      head 400
     end
   end
 end

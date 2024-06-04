@@ -8,10 +8,9 @@ export default class extends Controller {
   connect() {
       this.subscription = createConsumer().subscriptions.create(
         { channel: "SubscriptionsChannel", id: this.idValue },
-        { received: data => console.log(data) }
+        { received: data => this.subscriptionTarget.textContent = data }
       )
 
-      console.log(this.subscription)
     }
 
   subscribe(event) {
@@ -20,8 +19,9 @@ export default class extends Controller {
     const response = fetch(`/guides/${a}/subscriptions`, {
       method: "POST"
     })
+    .then(response => {if (response.status == 200) {this.buttonTarget.textContent = "Subscribed"; this.buttonTarget.disabled = true;} else {alert("Log in to subscribe")}})
 
-    this.subscription.send({message: "lala"})
+
 
   }
 
