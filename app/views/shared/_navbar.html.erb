@@ -1,20 +1,12 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
-    <% end %>
-    <%= link_to "Resources", info_path %>
+<div class="navbar-lewagon">
+    <%= link_to "Resources", resources_path %>
     <%= link_to "Guides", all_guides_path %>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
-        <% if user_signed_in? %>
-              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-               <%= link_to "Personal area", user_path(current_user.id) %>
-        <% else %>
-          <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-          </li>
-        <% end %>
-      </ul>
+    <% if user_signed_in? %>
+    <div class="personal-area">
+      <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+      <%= link_to "Personal area", user_path(current_user.id), class: "link" %>
     </div>
-  </div>
+    <% else %>
+      <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+    <% end %>
 </div>

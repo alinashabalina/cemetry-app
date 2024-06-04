@@ -10,9 +10,7 @@
     <%= javascript_importmap_tags %>
   </head>
 
-<% unless action_name != "index" %>
       <%= render 'shared/navbar' %>
-    <% end %>
   <body>
     <%= render "shared/flashes" %>
     <%= yield %>

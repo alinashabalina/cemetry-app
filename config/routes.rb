@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   post "/guides/create", to: "guides#create", as: "guides"
   get "/guides/:guide_id/edit", to: "guides#edit", as: "guide_edit"
   get "/create/tour", to: "tours#suggest", as: "suggest"
+  get "/resources", to: "pages#resources", as: "resources"
   devise_for :users
 
   mount ActionCable.server => "/cable"
