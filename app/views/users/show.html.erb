@@ -7,7 +7,11 @@
  <div class="mega-wrapper">
  <h4><%= @user.email %></h4>
  <div class="tours-container">
-upcoming
+posted by me
+ </div>
+
+  <div class="tours-container">
+posted by guides I'm subscribed to
  </div>
  <% if @user.role == "user" %>
   <%= link_to "become a guide", apply_path(@user)%>
