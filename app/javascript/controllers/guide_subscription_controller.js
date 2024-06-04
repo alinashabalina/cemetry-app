@@ -10,7 +10,8 @@ export default class extends Controller {
         { channel: "SubscriptionsChannel", id: this.idValue },
         { received: data => console.log(data) }
       )
-      console.log(`Subscribed to the chatroom with the id ${this.idValue}.`)
+
+      console.log(this.subscription)
     }
 
   subscribe(event) {
