@@ -49,7 +49,7 @@ end
     @user.role = "pending"
     @user.save
     if @guide.save
-      UpdateUserJob.perform_later(@user)
+      UpdateUserJob.perform_now(@user)
       # UserMailer.application_email(@user).deliver
        else
          respond_to do |format|

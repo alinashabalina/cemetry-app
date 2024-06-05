@@ -8,6 +8,7 @@ class ToursController < ApplicationController
     @tour.guide_id = current_user.guide_id
     puts @tour.guide_id
     if @tour.save
+      UpdateTourJob.perform_now(@tour)
       redirect_to root_path, notice: "Wait for our letter"
       # UserMailer.application_email(@user).deliver
        else
