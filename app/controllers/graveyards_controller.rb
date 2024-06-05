@@ -10,7 +10,8 @@ class GraveyardsController < ApplicationController
   end
 
   def show
-    @graveyard = Graveyard.find(params[:id])
+    @graveyard = Graveyard.where("city_id": params[:city_id], "id": params[:id])[0]
+    GraveyardsChannel.broadcast_to(@graveyard, "lala")
     @marker = [{
       lat: @graveyard.latitude,
       lng: @graveyard.longitude

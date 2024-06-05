@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get "/guides/:guide_id/edit", to: "guides#edit", as: "guide_edit"
   get "/create/tour", to: "tours#suggest", as: "suggest"
   get "/resources", to: "pages#resources", as: "resources"
+  get "/subscriptions", to: "tours#all_subscriptions", as: "subscriptions"
   devise_for :users
 
   mount ActionCable.server => "/cable"

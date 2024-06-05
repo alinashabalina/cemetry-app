@@ -10,17 +10,24 @@ class GuidesController < ApplicationController
       respond_to do |format|
         msg = { :status => 200, :message => {:bio => @guide.bio}}
         format.json  { render :json => msg }
+        puts msg
       end
     else
       respond_to do |format|
         msg = { :status => 404, :message => @guide.errors.full_messages }
         format.json  { render :json => msg }
+        puts msg
       end
     end
   end
 
   def show
     @guide = Guide.find(params[:id])
+    if @guide.user_id == current_user.id
+      @self = "yes"
+    else
+      @self = "no"
+    end
     sbscr = UserSubscription.where("guide_id": @guide.id)
     @count =  sbscr.count
     if current_user
@@ -45,10 +52,13 @@ end
 
   def create
     @guide = Guide.new(guide_params)
+    @guide.user_id = current_user.id
+    Cloudinary::Uploader.upload(guide_params[:photo])
     @user = current_user
     @user.role = "pending"
-    @user.save
-    if @guide.save
+    @user.save!
+    if @guide.save!
+      redirect_to all_guides_path
       UpdateUserJob.perform_now(@user)
       # UserMailer.application_email(@user).deliver
        else
@@ -62,7 +72,7 @@ end
   private
 
   def guide_params
-    params.require(:guide).permit(:social_1, :social_2, :social_3, :bio, :photo, :city_id, :name)
+    params.require(:guide).permit(:social_1, :social_2, :social_3, :bio, :city_id,:photo, :name)
   end
 
 end

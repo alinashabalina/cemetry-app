@@ -1,16 +1,20 @@
-<h2><%=@graveyard.title%></h2>
-
-
 <div class="show-wrapper">
 <div class="gr gr-info">
-  <h3>Short info</h3>
+  <h3> <%=@graveyard.title%> short info</h3>
+
   <div class="card-info">
     <%=@graveyard.details%>
   </div>
-  <h3>Spots worth visiting</h3>
-  <div class="card-info">
-    <%=@graveyard.details%>
+
+  <div data-controller="graveyard-subscription">
+  <h3>Upcoming tours</h3>
+  <div class="card-info" data-graveyard-subscription-target="info">
+    lala
   </div>
+  </div>
+
+
+
   <h3>Pics worth seeing</h3>
   <div class="card-gallery" data-controller="pics">
     <div class="card-pic" data-action="click->pics#enlarge"></div>

@@ -1,8 +1,12 @@
 class UsersController < ApplicationController
-
   def show
     @user = User.find(params[:id])
-    puts @user.role
+    @guide = Guide.where("user_id": @user.id)[0]
+    if @guide
+      @is_guide = "true"
+    else
+      @is_guide = "false"
+    end
   end
 
   def apply

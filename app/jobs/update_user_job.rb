@@ -2,7 +2,7 @@ class UpdateUserJob < ApplicationJob
   queue_as :default
 
   def perform(user)
-    sleep 60
+    sleep 3
     user.role = "guide"
     user.save!
   end

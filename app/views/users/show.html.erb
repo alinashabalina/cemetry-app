@@ -1,7 +1,11 @@
 <div class="guide-container">
 
   <div class="photo-container">
- <img src="<%= asset_path("PICT0027.JPG")%>" class="userpic"/>
+    <% if @is_guide == "true" %>
+  <%= cl_image_tag @guide.photo.key, :class => "userpic" %>
+  <% else %>
+  <div class="userpic">
+  <% end%>
  </div>
 
  <div class="mega-wrapper">
@@ -10,17 +14,17 @@
 posted by me
  </div>
 
-  <div class="tours-container">
-posted by guides I'm subscribed to
+  <div class="tours-container" data-controller="tour-subscription">
+<button data-action="click->tour-subscription#show">show feed</button>
+<div data-tour-subscription-target="container">
+  posted by guides I'm subscribed to
+</div>
  </div>
- <% if @user.role == "user" %>
-  <%= link_to "become a guide", apply_path(@user)%>
- <% elsif @user.role == "pending" %>
- <%= link_to "post a tour", suggest_path(@user)%>
-  <% else %>
-   <%= link_to "post a tour", suggest_path(@user)%>
-  <% end %>
-
+ <% if @is_guide == "true" %>
+   <%= link_to "suggest a tour", suggest_path(@user)%>
+<% else %>
+ <%= link_to "apply for a guide", apply_path(@user)%>
+ <% end %>
 </div>
 
 </div>

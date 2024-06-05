@@ -1,7 +1,7 @@
 <div class="guide-container">
 
   <div class="photo-container">
- <img src="<%= asset_path(@guide.photo)%>" class="guide-photo-large"/>
+ <%= cl_image_tag @guide.photo.key, input_html: {class: "guide-photo-large"} %>
  </div>
 
  <div class="mega-wrapper">
@@ -14,6 +14,7 @@
  <div class="guide-info"><%= @guide.bio %></div>
 
 
+<% if @self == "no" %>
 <% if @id == "yes" %>
 <div data-controller="guide-subscription">
 <button disabled>Subscribed</button>
@@ -28,6 +29,9 @@
  <%= @count %>
 </div>
 </div>
+<% end %>
+<% else %>
+<div></div>
 <% end %>
 </div>
 
