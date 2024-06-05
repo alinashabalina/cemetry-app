@@ -1,0 +1,4 @@
+<% @tours.each do |tour|%>
+<%= link_to "tour info", tour_path(tour) %>
+<%= @guide.name %>
+<% end%>

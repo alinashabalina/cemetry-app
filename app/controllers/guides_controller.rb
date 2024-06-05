@@ -52,12 +52,13 @@ end
 
   def create
     @guide = Guide.new(guide_params)
-    @guide.user_id = current_user.id
-    Cloudinary::Uploader.upload(guide_params[:photo])
     @user = current_user
+    @guide.user_id = @user.id
+    Cloudinary::Uploader.upload(guide_params[:photo])
     @user.role = "pending"
-    @user.save!
     if @guide.save!
+      @user.guide_id = @guide.id
+      @user.save!
       redirect_to all_guides_path
       UpdateUserJob.perform_now(@user)
       # UserMailer.application_email(@user).deliver

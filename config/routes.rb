@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get "/create/tour", to: "tours#suggest", as: "suggest"
   get "/resources", to: "pages#resources", as: "resources"
   get "/subscriptions", to: "tours#all_subscriptions", as: "subscriptions"
+  post "/book/:id", to: "tours#book", as: "booking"
   devise_for :users
 
   mount ActionCable.server => "/cable"

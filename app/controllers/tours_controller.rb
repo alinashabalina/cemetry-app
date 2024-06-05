@@ -1,4 +1,11 @@
 class ToursController < ApplicationController
+  skip_before_action :verify_authenticity_token
+  def index
+    @tours = Tour.all
+    @tours.each do |tour|
+      @guide = Guide.find(tour.guide_id)
+    end
+  end
 
   def all_subscriptions
     @user = current_user
@@ -17,8 +24,8 @@ class ToursController < ApplicationController
   def create
     @user = current_user
     @tour = Tour.new(tour_params)
-    @tour.guide_id = current_user.guide_id
-    if @tour.save
+    @tour.guide_id = @user.guide_id
+    if @tour.save!
       ToursChannel.broadcast_to(@user, @tour)
       UpdateTourJob.perform_now(@tour)
       redirect_to root_path, notice: "Wait for our letter"
@@ -29,9 +36,28 @@ class ToursController < ApplicationController
   end
 
 
+  def show
+    @tour = Tour.find(params[:id])
+    @guide = Guide.find(@tour.guide_id)
+  end
+
+
+  def book # fix the if user please otherwise ...
+    @user = current_user
+    @tour = Tour.find(params[:id])
+    @booking = Booking.new("user_id": @user.id, "tour_id": @tour.id)
+    if @booking.save
+      respond_to do |format|
+        msg = { :status => 201, :message => {:info => @booking.id}}
+        format.json  { render :json => msg }
+      end
+    end
+  end
+
+
   private
 
   def tour_params
-    params.require(:tour).permit(:city_id, :graveyard_id, :title, :guide_id)
+    params.require(:tour).permit(:city_id, :graveyard_id, :title)
   end
 end
