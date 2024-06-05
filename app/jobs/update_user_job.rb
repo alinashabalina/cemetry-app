@@ -4,7 +4,6 @@ class UpdateUserJob < ApplicationJob
   def perform(user)
     puts "updating application status"
     user.role = "guide"
-    sleep 3
-    puts "Done!"
+    user.save!
   end
 end
