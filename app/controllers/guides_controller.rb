@@ -23,15 +23,16 @@ class GuidesController < ApplicationController
 
   def show
     @guide = Guide.find(params[:id])
-    if @guide.user_id == current_user.id
+    @user = current_user
+    if @guide.user_id == @user.id
       @self = "yes"
     else
       @self = "no"
     end
     sbscr = UserSubscription.where("guide_id": @guide.id)
     @count =  sbscr.count
-    if current_user
-      @subscription = UserSubscription.where("user_id": current_user.id, "guide_id": @guide.id).last
+    if @user
+      @subscription = UserSubscription.where("user_id": @user.id, "guide_id": @guide.id).last
       if @subscription
         @id = "yes"
       else
