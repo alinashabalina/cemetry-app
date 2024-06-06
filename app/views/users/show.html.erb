@@ -1,5 +1,5 @@
+ <% if @is_guide == "true" %>
 <div class="guide-container">
-
   <div class="photo-container">
     <% if @is_guide == "true" %>
   <%= cl_image_tag @guide.photo.key, :class => "userpic" , cached: true%>
@@ -7,7 +7,7 @@
   <div class="userpic">
   <% end%>
  </div>
-
+</div>
  <div class="mega-wrapper">
  <div class="mega-header"><%= @user.email %></div>
  <div class="tours-container" data-controller="self-subscription">
@@ -21,13 +21,31 @@
 </div>
  </div>
 <div class="mega-links">
- <% if @is_guide == "true" %>
    <%= link_to "suggest a tour", suggest_path(@user), :class => "mega-link" %>
-<% else %>
- <%= link_to "apply for a guide", apply_path(@user), :class => "mega-link"%>
- <% end %>
 </div>
+</div>
+</div>
+ <% else %>
 
+ <div class="user-container">
+  <div class="photo-container">
+    <% if @is_guide == "true" %>
+  <%= cl_image_tag @guide.photo.key, :class => "userpic" , cached: true%>
+  <% else %>
+  <div class="userpic">
+  <% end%>
+ </div>
 </div>
-
+ <div class="mega-wrapper">
+ <div class="mega-header"><%= @user.email %></div>
+  <div class="tour-container" data-controller="tour-subscription">
+<div data-tour-subscription-target="container">
+  posted by guides I'm subscribed to
 </div>
+ </div>
+<div class="mega-links">
+  <%= link_to "apply for a guide", apply_path(@user), :class => "mega-link"%>
+</div>
+</div>
+</div>
+<% end %>

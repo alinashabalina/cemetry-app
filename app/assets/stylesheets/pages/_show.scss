@@ -234,3 +234,33 @@ font-size: 20px;
 line-height: 40px;
 text-align: center;
 }
+
+
+.user-container {
+  background-color: #373A40;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  padding: 50px;
+}
+
+
+.megas-wrapper {
+  height: 600px;
+  width: 400px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.tour-container {
+  background-color: #F2EFE5;
+  border-radius: 10px;
+  height: 250px;
+  width: 450px;
+  margin-bottom: 10px;
+  text-align: center;
+  margin-left: 200px;
+}

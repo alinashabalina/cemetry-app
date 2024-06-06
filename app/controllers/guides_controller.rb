@@ -21,23 +21,25 @@ class GuidesController < ApplicationController
 
   def show
     @guide = Guide.find(params[:id])
-    @user = current_user
-    if @guide.user_id == @user.id
-      @self = "yes"
-    else
-      @self = "no"
-    end
-    sbscr = UserSubscription.where("guide_id": @guide.id)
-    @count =  sbscr.count
-    if @user
-      @subscription = UserSubscription.where("user_id": @user.id, "guide_id": @guide.id).last
-      if @subscription
-        @id = "yes"
+    if current_user
+      @user = current_user
+      if @guide.user_id == @user.id
+        @self = "yes"
       else
-        @id = "none"
+        @self = "no"
       end
-    else
-      flash[:notice] = "You need to login to subscribe"
+      sbscr = UserSubscription.where("guide_id": @guide.id)
+      @count =  sbscr.count
+      if @user
+        @subscription = UserSubscription.where("user_id": @user.id, "guide_id": @guide.id).last
+        if @subscription
+          @id = "yes"
+        else
+          @id = "none"
+        end
+      else
+        flash[:notice] = "You need to login to subscribe"
+      end
     end
 end
 
@@ -51,22 +53,24 @@ end
 
   def create
     @guide = Guide.new(guide_params)
-    @user = current_user
-    @guide.user_id = @user.id
-    Cloudinary::Uploader.upload(guide_params[:photo])
-    @user.role = "pending"
-    if @guide.save!
-      @user.guide_id = @guide.id
-      @user.save!
-      redirect_to all_guides_path
-      UpdateUserJob.perform_now(@user)
-      # UserMailer.application_email(@user).deliver
-       else
-         respond_to do |format|
-           msg = { :status => 400, :message => @guide.errors.full_messages }
-           format.json  { render :json => msg }
-         end
-       end
+    if current_user
+      @user = current_user
+      @guide.user_id = @user.id
+      Cloudinary::Uploader.upload(guide_params[:photo])
+      @user.role = "pending"
+      if @guide.save!
+        @user.guide_id = @guide.id
+        @user.save!
+        redirect_to all_guides_path
+        UpdateUserJob.perform_now(@user)
+        # UserMailer.application_email(@user).deliver
+        else
+          respond_to do |format|
+            msg = { :status => 400, :message => @guide.errors.full_messages }
+            format.json  { render :json => msg }
+          end
+        end
+      end
   end
 
   private
