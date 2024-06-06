@@ -13,3 +13,5 @@ city = City.new("title": "Berlin", "country": "Germany")
 city.save!
 gry = Graveyard.new("title": "Dreifaltigkeitskirchhof", "city_id": 2, "details": "In der ehemaligen Friedhofskapelle des Friedhofs befindet sich seit Anfang November 2013 eine Dauerausstellung über die Familie Mendelssohn.", "address": "Berlin, Hallesches Tor")
 gry.save!
+gry = Graveyard.new("title": "Friedhof Bad Schandau", "city_id": 1, "details": "Bad Schandau cemetery contains in total 115 German war graves from World War II.", "address": "01814, Bad Schandau")
+gry.save!

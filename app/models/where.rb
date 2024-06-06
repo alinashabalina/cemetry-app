@@ -1,0 +1,2 @@
+class Where < ApplicationRecord
+end

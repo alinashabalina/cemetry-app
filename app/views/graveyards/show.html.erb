@@ -14,13 +14,20 @@
   </div>
 
 
-
   <h3>Pics worth seeing</h3>
+  <% if @graveyard.id == 1%>
   <div class="card-gallery" data-controller="pics">
-    <div class="card-pic" data-action="click->pics#enlarge"></div>
-    <div class="card-pic" data-action="click->pics#enlarge"></div>
-    <div class="card-pic" data-action="click->pics#enlarge"></div>
+    <img src="<%= asset_path('_DSC2888.jpg') %>" class="card-pic" data-action="click->pics#enlarge">
+    <img src="<%= asset_path('_DSC2915.jpg') %>" class="card-pic" data-action="click->pics#enlarge">
+    <img src="<%= asset_path('_DSC2926.jpg') %>" class="card-pic" data-action="click->pics#enlarge">
   </div>
+   <% elsif @graveyard.id == 2%>
+  <div class="card-gallery" data-controller="pics">
+    <img src="<%= asset_path('_DSC9503.jpg') %>" class="card-pic" data-action="click->pics#enlarge">
+    <img src="<%= asset_path('_DSC9512.jpg') %>" class="card-pic" data-action="click->pics#enlarge">
+    <img src="<%= asset_path('_DSC9521.jpg') %>" class="card-pic" data-action="click->pics#enlarge">
+  </div>
+  <%end%>
 </div>
 <div class="gr">
 <div class="gr-map"
