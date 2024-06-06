@@ -69,3 +69,21 @@ html.turbolinks-progress-bar::before {
 .guide-container {
   display: flex;
 }
+.tour-link {
+  display: inline-block;
+  width: 150px;
+  height: 50px;
+  border-radius: 10px;
+  font-family: "Sedan", "sans-serif";
+  font-size: 12px;
+  text-decoration: none;
+  color: black;
+  text-align: center;
+  border: 1px solid  #B4B4B8;
+  line-height: 50px;
+  margin-left: 25px;
+  margin-top: 10px;
+  &:hover {
+    box-shadow: 1px 1px 1px 1px #B4B4B8;
+  }
+}

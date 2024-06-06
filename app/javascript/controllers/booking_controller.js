@@ -16,7 +16,7 @@ export default class extends Controller {
       method: "POST"
     })
     .then(response => response.json())
-    .then(data => alert(`Your booking with ${data.message.info} is successful`))
+    .then(data => {if (response.status == 200) {alert(`Your booking with ${data.message.info} is successful`)} else {alert (data.message.info)}})
 
   }
 

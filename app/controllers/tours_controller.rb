@@ -44,17 +44,23 @@ class ToursController < ApplicationController
 
 
   def book # fix the if user please otherwise ...
-    @user = current_user
-    @tour = Tour.find(params[:id])
-    @booking = Booking.new("user_id": @user.id, "tour_id": @tour.id)
-    if @booking.save
+    if current_user
+      @user = current_user
+      @tour = Tour.find(params[:id])
+      @booking = Booking.new("user_id": @user.id, "tour_id": @tour.id)
+      if @booking.save
+        respond_to do |format|
+          msg = { :status => 201, :message => {:info => @booking.id}}
+          format.json  { render :json => msg }
+        end
+      end
+    else
       respond_to do |format|
-        msg = { :status => 201, :message => {:info => @booking.id}}
-        format.json  { render :json => msg }
+      msg = { :status => 400, :message => {:info => "Log in to book a tour"}}
+      format.json  { render :json => msg }
       end
     end
   end
-
 
   private
 

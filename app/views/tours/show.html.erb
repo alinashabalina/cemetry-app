@@ -1,6 +1,6 @@
 <%= @tour.title %>
 <%= @guide.name %>
-<% cl_image_tag @guide.photo.key, input_html: {class: "guide-photo"} %>
+<%= cl_image_tag @guide.photo.key, :class => "guide-photo-large" %>
 <div data-controller="booking">
 <button data-action="click->booking#book">book a tour</button>
 </div>

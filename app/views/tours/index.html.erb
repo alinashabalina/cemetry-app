@@ -2,7 +2,7 @@
   <% @tours.each do |tour|%>
   <div class="guide" data-controller="guides">
     <img src="<%= asset_path('tour.png') %>" class="guide-photo">
-    <%= link_to "", tour_path(tour)%>
+    <%= link_to tour.title, tour_path(tour), :class => "tour-link" %>
    </div>
   <% end%>
 </div>
