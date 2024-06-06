@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  skip_before_action :verify_authenticity_token
   def show
     @user = User.find(params[:id])
     @guide = Guide.where("user_id": @user.id)[0]

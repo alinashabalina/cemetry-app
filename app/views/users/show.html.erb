@@ -10,12 +10,13 @@
 
  <div class="mega-wrapper">
  <h4><%= @user.email %></h4>
- <div class="tours-container">
-posted by me
+ <div class="tours-container" data-controller="self-subscription">
+<div data-self-subscription-target="container">
+  posted by me
+</div>
  </div>
 
   <div class="tours-container" data-controller="tour-subscription">
-<button data-action="click->tour-subscription#show">show feed</button>
 <div data-tour-subscription-target="container">
   posted by guides I'm subscribed to
 </div>
