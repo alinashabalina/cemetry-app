@@ -1,8 +1,9 @@
 class GraveyardsChannel < ApplicationCable::Channel
   def subscribed
     graveyard = Graveyard.find(params[:id])
-    puts graveyard
+    tours = Tour.where("graveyard_id":params[:id])
     stream_for graveyard
+    transmit tours
   end
 
   def unsubscribed

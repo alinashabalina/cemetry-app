@@ -6,7 +6,6 @@ export default class extends Controller {
   static values = {id: { type: String, default: window.location.pathname.split('/')[2] }}
 
   connect() {
-    console.log("connected")
       this.subscription = createConsumer().subscriptions.create(
         { channel: "ToursChannel", id: this.idValue },
         { received: data => {if (data.length === 0) {this.containerTarget.textContent = "No tours found"} else {this.containerTarget.textContent = "new tours found"}}})}
@@ -19,7 +18,6 @@ export default class extends Controller {
     }
 
     disconnect() {
-      console.log("Unsubscribed from the chatroom")
       this.subscription.unsubscribe()
     }
 

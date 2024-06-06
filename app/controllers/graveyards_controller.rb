@@ -10,11 +10,12 @@ class GraveyardsController < ApplicationController
   end
 
   def show
-    @graveyard = Graveyard.where("city_id": params[:city_id], "id": params[:id])[0]
-    GraveyardsChannel.broadcast_to(@graveyard, "lala")
+    @graveyard = Graveyard.find(params[:id])
+    @count = Graveyard.count
     @marker = [{
       lat: @graveyard.latitude,
-      lng: @graveyard.longitude
+      lng: @graveyard.longitude,
+      info_window_html: render_to_string(partial: "info_window", locals: {graveyard: @graveyard})
     }]
 end
 
