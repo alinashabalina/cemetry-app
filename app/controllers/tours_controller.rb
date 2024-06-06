@@ -1,5 +1,6 @@
 class ToursController < ApplicationController
   skip_before_action :verify_authenticity_token
+
   def index
     @tours = Tour.all
     @tours.each do |tour|
