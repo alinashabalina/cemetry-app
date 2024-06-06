@@ -1,12 +1,13 @@
 <div class="navbar-lewagon">
-    <%= link_to "Resources", resources_path %>
-    <%= link_to "Guides", all_guides_path %>
+    <%= link_to "Home", index_path , class: "link"%>
+    <%= link_to "Resources", resources_path, class: "link"%>
+    <%= link_to "Guides", all_guides_path, class: "link" %>
     <% if user_signed_in? %>
     <div class="personal-area">
-      <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+      <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "link" %>
       <%= link_to "Personal area", user_path(current_user.id), class: "link" %>
     </div>
     <% else %>
-      <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+      <%= link_to "Login", new_user_session_path, class: "link" %>
     <% end %>
 </div>

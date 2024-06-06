@@ -1,10 +1,10 @@
 <div class="guide-container">
 
   <div class="photo-container">
- <%= cl_image_tag @guide.photo.key, :class => "guide-photo-large" %>
+ <%= cl_image_tag @guide.photo.key, :class => "guide-photo-large", cached: true%>
  </div>
 
- <div class="mega-wrapper">
+ <div class="mega-wrappers">
  <h4><%= @guide.name %></h4>
  <div class="buttons-container">
   <a href="https://www.instagram.com/maat.zine/" class="socials-button">My Instagram Account</a>
@@ -17,7 +17,7 @@
 <% if @self == "no" %>
 <% if @id == "yes" %>
 <div data-controller="guide-subscription">
-<button disabled>Subscribed</button>
+<button class="subscription-button" disabled>Subscribed</button>
  <div class="sub-count" data-guide-subscription-target="subscription">
    <%= @count %>
 </div>

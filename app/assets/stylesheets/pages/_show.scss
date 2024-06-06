@@ -113,12 +113,52 @@ width: 300px;
 
 .mega-wrapper {
   height: 600px;
+  width: 800px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.mega-wrappers {
+  height: 600px;
+}
+
+.mega-header {
+  width: 800px;
+  font-family: "Sedan", "sans-serif";
+  font-size: 28px;
+  color: #F2EFE5;
+  text-align: center;
 }
 
 h4 {
   font-family: "Sedan", "sans-serif";
   font-size: 28px;
-  color: #F2EFE5;;
+  color: #F2EFE5;
+}
+
+.mega-links {
+  width: 800px;
+  padding-left: 250px;
+  padding-right: 250px;
+}
+
+.mega-link {
+  display: inline-block;
+  width: 300px;
+  height: 50px;
+  border-radius: 10px;
+  font-family: "Sedan", "sans-serif";
+  font-size: 28px;
+  text-decoration: none;
+  color: #F2EFE5;
+  text-align: center;
+  border: 1px solid #F2EFE5;
+  line-height: 50px;
+  &:hover {
+    box-shadow: 1px 1px 1px 1px #B4B4B8;
+  }
 }
 
 .guide-info {
@@ -127,6 +167,9 @@ h4 {
   color: #F2EFE5;
   font-family: "Sedan", "sans-serif";
   font-size: 18px;
+  background-color: #F2EFE5;
+  border-radius: 10px;
+  margin-bottom: 50px;
 }
 
 .personal-wrapper {
@@ -142,9 +185,35 @@ h4 {
   height: 400px;
   width: 400px;
   border-radius: 50%;
-  background-color: #F2EFE5;;
+  background-color: #F2EFE5;
 }
 
 .sub-count {
   color: white;
+}
+
+.tours-container {
+  background-color: #F2EFE5;
+  border-radius: 10px;
+  height: 250px;
+  width: 250px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.subscription-button {
+  display: inline-block;
+  width: 300px;
+  height: 50px;
+  border-radius: 10px;
+  font-family: "Sedan", "sans-serif";
+  font-size: 28px;
+  text-decoration: none;
+  color: #F2EFE5;
+  text-align: center;
+  border: 1px solid #F2EFE5;
+  line-height: 50px;
+  &:hover {
+    box-shadow: 1px 1px 1px 1px #B4B4B8;
+  }
 }

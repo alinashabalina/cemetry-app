@@ -9,7 +9,9 @@ export default class extends Controller {
       this.subscription = createConsumer().subscriptions.create(
         { channel: "SelfChannel", id: this.idValue },
         { received: data => {console.log(data); this.containerTarget.textContent = data.title} })}
-    disconnect() {
+
+
+        disconnect() {
       this.subscription.unsubscribe()
     }
 
