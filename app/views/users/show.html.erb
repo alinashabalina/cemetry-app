@@ -10,21 +10,16 @@
 
  <div class="mega-wrapper">
  <div class="mega-header"><%= @user.email %></div>
-
-
-
  <div class="tours-container" data-controller="self-subscription">
 <div data-self-subscription-target="container">
   posted by me
 </div>
  </div>
-
   <div class="tours-container" data-controller="tour-subscription">
 <div data-tour-subscription-target="container">
   posted by guides I'm subscribed to
 </div>
  </div>
-
 <div class="mega-links">
  <% if @is_guide == "true" %>
    <%= link_to "suggest a tour", suggest_path(@user), :class => "mega-link" %>

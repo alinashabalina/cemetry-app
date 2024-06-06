@@ -16,15 +16,15 @@
 
 <% if @self == "no" %>
 <% if @id == "yes" %>
-<div data-controller="guide-subscription">
-<button class="subscription-button" disabled>Subscribed</button>
+<div class="sub-container" data-controller="guide-subscription">
+<button class="subscription-button" disabled>Already subscribed</button>
  <div class="sub-count" data-guide-subscription-target="subscription">
    <%= @count %>
 </div>
 </div>
 <% else %>
-<div data-controller="guide-subscription">
-<button data-guide-subscription-target="button" data-action="click->guide-subscription#subscribe">Subscribe</button>
+<div class="sub-container" data-controller="guide-subscription">
+<button class="subscription-button" data-guide-subscription-target="button" data-action="click->guide-subscription#subscribe">Subscribe</button>
  <div class="sub-count" data-guide-subscription-target="subscription">
  <%= @count %>
 </div>
