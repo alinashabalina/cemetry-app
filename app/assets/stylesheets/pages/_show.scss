@@ -264,3 +264,19 @@ text-align: center;
   text-align: center;
   margin-left: 200px;
 }
+
+.book-tour {
+  display: inline-block;
+  width: 150px;
+  height: 50px;
+  border-radius: 10px;
+  font-family: "Sedan", "sans-serif";
+  font-size: 28px;
+  text-decoration: none;
+  color: black;
+  text-align: center;
+  border: 1px solid #B4B4B8;
+  &:hover {
+    box-shadow: 1px 1px 1px 1px #B4B4B8;
+  }
+}
