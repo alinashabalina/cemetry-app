@@ -1,4 +1,8 @@
-<% @tours.each do |tour|%>
-<%= link_to "tour info", tour_path(tour) %>
-<%= @guide.name %>
-<% end%>
+<div class="guide-wrapper">
+  <% @tours.each do |tour|%>
+  <div class="guide" data-controller="guides">
+    <img src="<%= asset_path('tour.png') %>" class="guide-photo">
+    <%= link_to "", tour_path(tour)%>
+   </div>
+  <% end%>
+</div>
