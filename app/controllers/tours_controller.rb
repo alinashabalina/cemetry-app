@@ -65,6 +65,6 @@ class ToursController < ApplicationController
   private
 
   def tour_params
-    params.require(:tour).permit(:city_id, :graveyard_id, :title)
+    params.require(:tour).permit(:city_id, :graveyard_id, :title, :info)
   end
 end

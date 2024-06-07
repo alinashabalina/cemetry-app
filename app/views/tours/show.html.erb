@@ -1,8 +1,12 @@
 <div class="tour-title"><%= @tour.title %></div>
 <div class="tour-wrapper">
-<%= cl_image_tag @guide.photo.key, :class => "guide-photo-large" %>
+<%= link_to guide_path(@guide) do %>
+  <%= cl_image_tag @guide.photo.key, :class => "guide-photo-large" %>
+<% end %>
 <div class="tour-info">
-<%= @guide.name %>
+<div class="tour-minor">
+<%= @tour.info %>
+</div>
 <div data-controller="booking">
 <button class="book-tour" data-action="click->booking#book">book a tour</button>
 </div>

@@ -299,6 +299,15 @@ text-align: center;
   align-items: center;
 }
 
+.tour-minor {
+  width: 600px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .tour-wrapper {
   display: flex;
   flex-direction: row;
