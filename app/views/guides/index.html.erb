@@ -1,7 +1,7 @@
 <div class="guide-wrapper">
   <% @guides.each do |guide|%>
   <div class="guide" data-controller="guides">
-   <%= cl_image_tag guide.photo.key, :class => "guide-photo", :"data-action" => "click->guides#show", :id => guide.id %>
+   <%= cl_image_tag guide.photo.key, :class => "guide-photo", :"data-action" => "click->guides#show", :crop => :fill, :id => guide.id %>
    <div class="bio" data-guides-target="bio" >Click the photo to see short info or
     <%= link_to "see full info", guide_path(guide.id), class: "link-btn"%>
    </div>

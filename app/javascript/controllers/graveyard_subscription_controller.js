@@ -8,10 +8,9 @@ export default class extends Controller {
   connect() {
       this.subscription = createConsumer().subscriptions.create(
         { channel: "GraveyardsChannel", id: this.idValue},
-        { received: data => {if (data.length > 0) {data.forEach((el) => this.infoTarget.textContent = el.title);} else {this.infoTarget.textContent ="No upcoming tours"}}})}
+        { received: data => { if (data) {if (data.length > 0) {data.forEach((el) => this.infoTarget.textContent = el.title);} else {this.infoTarget.textContent ="No upcoming tours"}} else {this.infoTarget.textContent ="No upcoming tours"}} })}
 
     refresh() {
-      console.log(window.location.pathname.split('/')[2])
       fetch(`/cities/${this.cityValue}/graveyards/${this.idValue}`)
     }
 

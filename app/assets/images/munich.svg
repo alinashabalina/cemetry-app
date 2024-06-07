@@ -1,0 +1,24 @@
+<svg width="20" height="15" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background circle to fill the icon space -->
+    <circle cx="10" cy="10" r="9" fill="#FFFFFF" stroke="#000000" stroke-width="1" />
+
+    <!-- Base of the church -->
+    <rect x="4" y="10" width="12" height="8" fill="#6D4C41" />
+
+    <!-- Left tower -->
+    <rect x="5" y="4" width="3" height="6" fill="#4E342E" />
+    <circle cx="6.5" cy="4" r="1.5" fill="#4E342E" />
+    <rect x="6" y="3" width="1" height="2" fill="#FFFFFF" />
+
+    <!-- Right tower -->
+    <rect x="12" y="4" width="3" height="6" fill="#4E342E" />
+    <circle cx="13.5" cy="4" r="1.5" fill="#4E342E" />
+    <rect x="13" y="3" width="1" height="2" fill="#FFFFFF" />
+
+    <!-- Roof of the church -->
+    <path d="M4,10 L16,10 L10,4 L4,10" fill="#8D6E63" />
+
+    <!-- Windows of the church -->
+    <rect x="7" y="12" width="1.5" height="2" fill="#FFFFFF" />
+    <rect x="11.5" y="12" width="1.5" height="2" fill="#FFFFFF" />
+</svg>

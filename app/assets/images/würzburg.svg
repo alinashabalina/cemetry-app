@@ -1,0 +1,28 @@
+<svg width="20" height="15" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background circle to fill the icon space -->
+    <circle cx="10" cy="10" r="9" fill="#FFFFFF" stroke="#000000" stroke-width="1" />
+
+    <!-- Central structure of the Würzburg Residence -->
+    <rect x="4" y="8" width="12" height="8" fill="#8D6E63" />
+
+    <!-- Left wing of the Residence -->
+    <rect x="2" y="9" width="3" height="6" fill="#BCAAA4" />
+
+    <!-- Right wing of the Residence -->
+    <rect x="15" y="9" width="3" height="6" fill="#BCAAA4" />
+
+    <!-- Central dome of the Residence -->
+    <ellipse cx="10" cy="7" rx="3" ry="2" fill="#6D4C41" />
+    <rect x="9" y="4" width="2" height="3" fill="#6D4C41" />
+
+    <!-- Windows of the central structure -->
+    <rect x="6" y="10" width="1.5" height="2" fill="#FFFFFF" />
+    <rect x="9.25" y="10" width="1.5" height="2" fill="#FFFFFF" />
+    <rect x="12.5" y="10" width="1.5" height="2" fill="#FFFFFF" />
+
+    <!-- Windows of the left wing -->
+    <rect x="2.5" y="11" width="1.5" height="1.5" fill="#FFFFFF" />
+
+    <!-- Windows of the right wing -->
+    <rect x="16" y="11" width="1.5" height="1.5" fill="#FFFFFF" />
+</svg>

@@ -7,15 +7,9 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
-city = City.new("title": "Bad Schandau", "country": "Germany")
+city = City.new("title": "Hamburg", "country": "Germany")
 city.save!
-city = City.new("title": "Berlin", "country": "Germany")
+city = City.new("title": "München", "country": "Germany")
 city.save!
-city = City.new("title": "Dresden", "country": "Germany")
+city = City.new("title": "Würzburg", "country": "Germany")
 city.save!
-gry = Graveyard.new("title": "Dreifaltigkeitskirchhof", "city_id": 2, "details": "In der ehemaligen Friedhofskapelle des Friedhofs befindet sich seit Anfang November 2013 eine Dauerausstellung über die Familie Mendelssohn.", "address": "Berlin, Hallesches Tor")
-gry.save!
-gry = Graveyard.new("title": "Friedhof Bad Schandau", "city_id": 1, "details": "Bad Schandau cemetery contains in total 115 German war graves from World War II.", "address": "01814, Bad Schandau")
-gry.save!
-gry = Graveyard.new("title": "Innerer Matthäusfriedhof", "city_id": 3, "details": "Der Innere Matthäusfriedhof ist einer von zwei Matthäusfriedhöfen der Stadt Dresden. Er liegt in der Friedrichstadt in unmittelbarer Nähe zur Matthäuskirche und gehört zu den kleinen Friedhöfen der Stadt.", "address": " 01067, Dresden")
-gry.save!
