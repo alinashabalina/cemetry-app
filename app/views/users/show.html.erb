@@ -11,6 +11,7 @@
  <div class="mega-header"><%= @user.email %></div>
  <div class="tours-container" data-controller="self-subscription">
 <div data-self-subscription-target="container">
+  <button data-action="click->self-subscription#refresh"></button>
   posted by me
 </div>
  </div>

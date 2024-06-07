@@ -8,8 +8,11 @@ export default class extends Controller {
   connect() {
       this.subscription = createConsumer().subscriptions.create(
         { channel: "ToursChannel", id: this.idValue },
-        { received: data => {if (data.length > 0) {data.forEach((element) => {this.containerTarget.textContent = element.title});}}})}
+        { received: data => { if (data) {if (data.length > 0) {data.forEach((element) => {this.containerTarget.textContent = element.title});} else {this.containerTarget.textContent = "No tours found"}} else {this.containerTarget.textContent = "No tours found"}}})}
 
+    refresh() {
+      fetch("/subscriptions")
+    }
     disconnect() {
       this.subscription.unsubscribe()
     }
