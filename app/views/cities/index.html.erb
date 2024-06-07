@@ -3,7 +3,7 @@
 <div class="wrapper">
 <form action="/index" method="get" class="search-form">
   <div style="display:flex;">
-  <input type="text" name="title" class="search-input" placeholder="enter a city or a country">
+  <input type="text" name="title" class="search-input" placeholder="enter a city">
   <input type="submit" class="search-button">
   </div>
 </form>
@@ -14,6 +14,11 @@
     <% @cities.each do |city| %>
 <div class="card">
 <div class="city"><%= link_to city.title, city_path(city.id), :style=>'color: black; text-decoration: none;'%></div>
+<% if city.id == 2%>
+<img src="<%= asset_path('berlin.svg') %>">
+<% elsif city.id == 1%>
+<img src="<%= asset_path('bad.svg') %>">
+<% end %>
 </div>
     <% end %>
 

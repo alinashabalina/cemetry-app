@@ -276,7 +276,31 @@ text-align: center;
   color: black;
   text-align: center;
   border: 1px solid #B4B4B8;
+  margin-top: 50px;
   &:hover {
     box-shadow: 1px 1px 1px 1px #B4B4B8;
   }
+}
+
+.tour-title {
+  width: 100vw;
+  text-align: center;
+  font-family: "Sedan", "sans-serif";
+  font-size: 34px;
+}
+
+.tour-info {
+  width: 600px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  padding-top: 50px;
+  align-items: center;
+}
+
+.tour-wrapper {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  justify-content: space-around;
 }

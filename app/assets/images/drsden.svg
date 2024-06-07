@@ -1,0 +1,25 @@
+<svg width="20" height="15" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background -->
+    <rect width="20" height="20" fill="#F5F5F5"/>
+
+    <!-- Simplified Frauenkirche -->
+    <g stroke="#000" stroke-width="0.5" fill="none">
+        <!-- Dome -->
+        <ellipse cx="10" cy="6" rx="4" ry="3" fill="#D9D9D9"/>
+        <!-- Base of the church -->
+        <rect x="6" y="9" width="8" height="6" fill="#BFBFBF"/>
+        <!-- Towers -->
+        <rect x="7" y="7" width="2" height="2" fill="#BFBFBF"/>
+        <rect x="11" y="7" width="2" height="2" fill="#BFBFBF"/>
+    </g>
+
+    <!-- Cross on top -->
+    <line x1="10" y1="2" x2="10" y2="4" stroke="#000" stroke-width="0.5"/>
+    <line x1="9" y1="3" x2="11" y2="3" stroke="#000" stroke-width="0.5"/>
+
+    <!-- Base details -->
+    <g stroke="#000" stroke-width="0.3">
+        <line x1="6" y1="12" x2="14" y2="12"/>
+        <line x1="6" y1="14" x2="14" y2="14"/>
+    </g>
+</svg>
