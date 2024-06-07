@@ -2,7 +2,8 @@ class ToursController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
-    @tours = Tour.all
+    @tours = Tour.all.last(5)
+
     @tours.each do |tour|
       @guide = Guide.find(tour.guide_id)
     end
