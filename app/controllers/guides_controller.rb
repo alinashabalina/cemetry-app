@@ -1,7 +1,7 @@
 class GuidesController < ApplicationController
 
   def index
-    @guides = Guide.all.last(5)
+    @guides = Guide.all.first(5)
   end
 
   def info
