@@ -43,7 +43,7 @@ class ToursController < ApplicationController
   end
 
 
-  def book # fix the if user please otherwise ...
+  def book
     if current_user
       @user = current_user
       @tour = Tour.find(params[:id])
