@@ -8,9 +8,12 @@
 
   <div data-controller="graveyard-subscription">
   <h3>Upcoming tours</h3>
-  <div class="card-info" data-graveyard-subscription-target="info">
-    <button class="button-apply margin" data-action="click->graveyard-subscription#refresh">refresh</button>
-  </div>
+   <% @tours.each do |tour|%>
+   <%= link_to tour_path(tour), style: "color: black; text-decoration: none; font-size: 16px; margin-left: 20px;" do %>
+  <%= tour.title%>
+  <br>
+  <% end%>
+    <% end%>
   </div>
 
 
