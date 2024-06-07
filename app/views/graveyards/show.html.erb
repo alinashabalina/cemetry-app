@@ -9,7 +9,7 @@
   <div data-controller="graveyard-subscription">
   <h3>Upcoming tours</h3>
   <div class="card-info" data-graveyard-subscription-target="info">
-    lala
+    <button class="button-apply margin" data-action="click->graveyard-subscription#refresh">refresh</button>
   </div>
   </div>
 
@@ -26,6 +26,12 @@
     <img src="<%= asset_path('_DSC9503.jpg') %>" class="card-pic" data-action="click->pics#enlarge">
     <img src="<%= asset_path('_DSC9512.jpg') %>" class="card-pic" data-action="click->pics#enlarge">
     <img src="<%= asset_path('_DSC9521.jpg') %>" class="card-pic" data-action="click->pics#enlarge">
+  </div>
+    <% elsif @graveyard.id == 3%>
+  <div class="card-gallery" data-controller="pics">
+    <img src="<%= asset_path('_DSC9735.jpg') %>" class="card-pic" data-action="click->pics#enlarge">
+    <img src="<%= asset_path('_DSC9736.jpg') %>" class="card-pic" data-action="click->pics#enlarge">
+    <img src="<%= asset_path('_DSC9737.jpg') %>" class="card-pic" data-action="click->pics#enlarge">
   </div>
   <%end%>
 </div>

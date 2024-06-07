@@ -1,6 +1,3 @@
-<h2>apply as a guide</h2>
-
-
 <div class="form-submit">
 <%= simple_form_for(@guide) do |f| %>
   <%= f.error_notification %>
@@ -17,6 +14,6 @@
                 input_html: {class: "form-input"} %>
   <%= f.input :social_3, label: 'What is your social?',
                 input_html: {class: "form-input"} %>
-  <%= f.button :submit, value: "Apply as a guide", class:"btn btn-primary" %>
+  <%= f.button :submit, value: "Apply as a guide", class:"button-apply" %>
 <% end %>
 </div>
