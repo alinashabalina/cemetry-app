@@ -1,35 +1,89 @@
-.navbar-lewagon {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  background-color: #B4B4B8;
-  width: 100vw;
-  padding: 10px;
-  opacity: 0.5;
-}
+@media only screen and (max-width: 600px) {
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
-
-.personal-area {
-  display: flex;
-  width: 300px;
-}
-
-.link {
-display: inline-block;
-width: 200px;
-height: 40px;
-border-radius: 10px;
-font-family: "Sedan", "sans-serif";
-font-size: 14px;
-text-decoration: none;
-color: #F2EFE5;
-text-align: center;
-border: 1px solid #F2EFE5;
-line-height: 40px;
-&:hover {
-  box-shadow: 1px 1px 1px 1px #B4B4B8;
+  .navbar-lewagon {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 90vw;
+    background-color: #B4B4B8;
+    opacity: 0.5;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
   }
+
+  .navbar-lewagon .navbar-collapse {
+    flex-grow: 0;
+  }
+
+  .personal-area {
+    display: flex;
+    width: 300px;
+  }
+
+  .link {
+  display: inline-block;
+  width: 20vw;
+  height: 40px;
+  border-radius: 10px;
+  font-family: "Sedan", "sans-serif";
+  font-size: 14px;
+  text-decoration: none;
+  color: #F2EFE5;
+  text-align: center;
+  border: 1px solid #F2EFE5;
+  line-height: 40px;
+  &:hover {
+    box-shadow: 1px 1px 1px 1px #B4B4B8;
+    }
+  }
+
+}
+
+@media only screen and (min-width: 600px) {
+
+
+
+}
+
+@media only screen and (min-width: 1200px) {
+
+
+  .navbar-lewagon {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #B4B4B8;
+    width: 100vw;
+    padding: 10px;
+    opacity: 0.5;
+  }
+
+  .navbar-lewagon .navbar-collapse {
+    flex-grow: 0;
+  }
+
+  .personal-area {
+    display: flex;
+    width: 300px;
+  }
+
+  .link {
+  display: inline-block;
+  width: 200px;
+  height: 40px;
+  border-radius: 10px;
+  font-family: "Sedan", "sans-serif";
+  font-size: 14px;
+  text-decoration: none;
+  color: #F2EFE5;
+  text-align: center;
+  border: 1px solid #F2EFE5;
+  line-height: 40px;
+  &:hover {
+    box-shadow: 1px 1px 1px 1px #B4B4B8;
+    }
+  }
+
+
 }
